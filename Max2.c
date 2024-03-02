@@ -10,14 +10,11 @@ int larger(int a,int b){
     }
 }
 
-int Max(int Arr[],int start,int last){
-    if(start==last) {
+int Max(int Arr[], int start, int last) {
+    if (start == last) {
         return Arr[start];
-    }else{
-        
-        int maxLeft=Max(Arr,start,mid);
-
-        return (maxLeft>maxRight) ? maxLeft : maxRight;
+    } else {
+        return larger(Arr[start],Max(Arr, start + 1, last));
     }
 }
 
