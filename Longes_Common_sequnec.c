@@ -18,7 +18,6 @@ int lcs(int X[], int Y[], int m, int n) {
             }
         }
     }
-
     return L[m][n];
 }
 
