@@ -35,7 +35,6 @@ int nap_dynamic(int value[], int n) {
             price[i] = max(price[i], value[j - 1] + price[i - j]);
         }
     }
-
     return price[n];
 }
 
