@@ -6,17 +6,15 @@ int max(int a, int b) {
 
 int knapsack(int W, int n, int w[], int v[]) {
     int knapsack[n + 1][W + 1];
-    for (int i = 0; i <= n; i++) {
-        for (int j = 0; j <= W; j++) {
-            knapsack[i][j] = 0;
-        }
-    }
-
-    for (int item = 1; item <= n; item++) {
+    for (int item = 0; item <= n; item++) {
         for (int capacity = 0; capacity <= W; capacity++) {
-            if (w[item] > capacity) {
+            if(item==0 || capacity==0){
+                knapsack[item][capacity]=0;
+            }
+            else if (w[item] > capacity) {
                 knapsack[item][capacity] = knapsack[item - 1][capacity];
-            } else {
+            }
+            else {
                 knapsack[item][capacity] = max(knapsack[item - 1][capacity], knapsack[item - 1][capacity - w[item]] + v[item]);
             }
         }
